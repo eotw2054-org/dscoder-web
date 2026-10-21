@@ -1,0 +1,95 @@
+/* What both pages share: the product's own colours, the header, the footer,
+ * the one button, and the way an unfilled release value is drawn.
+ *
+ * The colours and the 3px radius are lifted from the app (ui/index.html
+ * :root) rather than chosen again here, so the site and the thing you
+ * download look like one object.
+ */
+:root{
+  --paper:#E3E1D9;      /* drafting stone */
+  --paper-2:#EDEBE4;
+  --said:#D6DEE7;       /* what YOU said: cooler ground, pinned into the page */
+  --ink:#14202A;
+  /* The app's --ink-60 is #5A6671, which measures 4.49:1 on this paper —
+     a rounding error away from passing. One step darker and it clears 4.5
+     properly. Nobody can see the difference; the measurement can. */
+  --ink-60:#596570;
+  --ink-35:#8F969D;
+  --rule:#C9C6BC;
+  --add:#1F7A4C;
+  --del:#B3321F;
+  --warn:#B67A12;
+  --plot:#2F5D8C;
+  --sans:"IBM Plex Sans",system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.62 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+/* 600 is SemiBold, a face that exists. The mocks asked for 650 and got a
+   synthesised weight; with the real fonts shipped that would round up to
+   Bold, which is too heavy for a 48px line on a page this quiet. */
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.02em;line-height:1.12}
+p{margin:0}
+:focus-visible{outline:2px solid var(--plot);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+
+/* Skip link: the first thing a keyboard lands on, and invisible until then. */
+.skip{position:absolute;left:-9999px;top:0;z-index:5;padding:11px 18px;
+  background:var(--ink);color:var(--paper-2);font-size:14px;font-weight:600;
+  border-radius:0 0 3px 0}
+.skip:focus{left:0}
+
+/* ── header ─────────────────────────────────────────────────────────── */
+/* The nav always says "Sign in". A static page cannot know whether whoever
+   is reading it has an account, and a wrong "Sign out" is worse than a
+   redundant "Sign in". */
+.top{border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:baseline;height:64px}
+.mark{font-size:19px;font-weight:700;letter-spacing:-.022em}
+.mark i{font:500 11.5px/1 var(--mono);font-style:normal;color:var(--ink-35);
+  margin-left:9px;letter-spacing:0}
+.mark i:empty{display:none}
+.top nav{margin-left:auto;display:flex;gap:28px;font-size:14.5px;color:var(--ink-60)}
+.top nav a:hover{color:var(--ink)}
+
+/* ── the one button ─────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;padding:12px 21px;border-radius:3px;
+  background:var(--ink);color:var(--paper-2);font-weight:600;font-size:15px;
+  border:1px solid var(--ink);font-family:inherit;cursor:pointer}
+.btn:hover{background:#0b161e;border-color:#0b161e}
+.btn.ghost{background:none;color:var(--ink);border-color:var(--rule);font-weight:500}
+.btn.ghost:hover{background:#00000008;border-color:var(--ink-35)}
+/* A download button with nothing behind it yet. It must not look pressable,
+   because there is nothing to press: no release has been published. */
+.btn[aria-disabled="true"]{background:none;color:var(--ink-60);
+  border:1px dashed var(--rule);font-weight:500;cursor:default}
+.btn[aria-disabled="true"]:hover{background:none;border-color:var(--rule)}
+
+/* ── an unfilled release value ──────────────────────────────────────── */
+/* Every number that only a real build can know is drawn like this until the
+   build fills it in: see assets/release.js. It should read as a blank in a
+   form, not as a fact. */
+/* Quiet, but still readable: this is the one place on the page that says
+   what is and is not known yet, so it cannot be a 2.3:1 whisper. The dotted
+   rule is what marks it as a blank, not the colour. */
+.unfilled{color:var(--ink-60);border-bottom:1px dotted var(--ink-35);
+  font-style:normal}
+
+/* ── footer ─────────────────────────────────────────────────────────── */
+footer{padding:38px 0 46px;font-size:13.5px;color:var(--ink-60);
+  border-top:1px solid var(--rule);margin-top:44px}
+footer .wrap{display:flex;gap:24px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
+footer .rt{margin-left:auto}
+
+@media (max-width:900px){
+  .wrap{padding:0 20px}
+  /* Two links are all that fit, and they are the two that lead anywhere. */
+  .top nav a.sec{display:none}
+  .top nav{gap:20px}
+  footer .rt{margin-left:0}
+}

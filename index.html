@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>dscoder — the agent works on your computer</title>
+<meta name="description" content="dscoder is a coding agent that runs on your own computer, in your own repository. You drive it from a browser, and the browser can be anywhere. Nothing listens on your machine.">
+<meta name="color-scheme" content="light">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/home.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to the page</a>
+
+<header class="top">
+  <div class="wrap">
+    <span class="mark">dscoder<i data-rel-version-mark></i></span>
+    <nav>
+      <a class="sec" href="#how">How it works</a>
+      <a class="sec" href="#cost">What it costs</a>
+      <a href="download.html">Download</a>
+      <!-- Always "Sign in": a static page cannot know who is reading it. -->
+      <a href="https://dscoder.cc.cd">Sign in</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <!-- The sentence. Full width, before the page takes a side. -->
+  <section class="open">
+    <h1><span>The agent works on your computer.</span>
+        <span>You don't have to be sitting at it.</span></h1>
+  </section>
+
+  <!-- From here down the hairline is the boundary. Left of it is you.
+       Right of it is the computer at home — which is why the interface
+       itself is on the right, and why it is the first thing under the
+       headline rather than a screen further down. -->
+  <section class="row lead">
+    <div class="side">
+      <p class="lede">dscoder opens your real files, edits them, runs your
+        commands and checks what it made — in the repository you already work
+        in, on your own disk. You drive it from a browser, and
+        <b>the browser can be anywhere</b>.</p>
+      <div class="cta">
+        <a class="btn" href="download.html">Download</a>
+        <a class="btn ghost" href="#how">How it works</a>
+      </div>
+      <p class="free foot">Free, and not a trial. No card. An account is only
+        needed to reach it from somewhere else.</p>
+    </div>
+
+    <div class="seam"></div>
+
+    <div class="side rt">
+      <div class="pn" role="img" aria-label="The dscoder interface during a run on a computer called WORKBENCH. In the project kart it has read src/car.js, edited it, looked at a screenshot, and has stopped at turn 16 to ask whether it may run npm test.">
+        <div class="pn-side">
+          <div class="pn-brand">dscoder<i>WORKBENCH</i></div>
+          <div class="pn-new">New chat</div>
+          <div class="pn-lbl">Projects</div>
+          <div class="pn-item">kart<i>7</i></div>
+          <div class="pn-item">dscoder<i>3</i></div>
+          <div class="pn-item">pager<i>1</i></div>
+          <div class="pn-lbl">Conversations</div>
+          <div class="pn-run on">The shoulder<i>live&nbsp; +1,820 &minus;554</i></div>
+          <div class="pn-run">Track from real data<i>23h ago&nbsp; +684 &minus;164</i></div>
+          <div class="pn-run">A reset key<i>1d ago&nbsp; +342 &minus;167</i></div>
+        </div>
+
+        <div class="pn-main">
+          <div class="pn-crumb">kart&nbsp; C:\Users\you\code\kart&nbsp; main</div>
+          <div class="pn-title">Make driving onto the shoulder slow the car instead of stopping it dead</div>
+          <div class="pn-pills">
+            <span class="pn-live"><i class="dot"></i>Working</span>
+            <span><b>+1,820</b> / <b class="d">&minus;554</b> lines</span>
+            <span>turn 16</span>
+          </div>
+          <p class="pn-said">The car stops dead the moment a wheel leaves the
+            track. It should lose grip and slow down.</p>
+          <div class="pn-row"><i>13</i><b>read</b><code>src/car.js</code><em>880 lines</em></div>
+          <div class="pn-row"><i>14</i><b>edit</b><code>src/car.js</code><em class="a">+37</em><em class="d">&minus;12</em></div>
+          <div class="pn-row"><i>15</i><b>look</b><code>a screenshot of the car on the shoulder</code></div>
+          <div class="pn-row ask"><i>16</i><b>run</b><code>npm test</code><em>asking you</em></div>
+          <div class="pn-ask">
+            <span class="q">Run this command?</span>
+            <span class="acts"><b>Allow</b><b class="g">Not this time</b></span>
+          </div>
+        </div>
+      </div>
+      <p class="cap">A run in progress. The work in it is made up.</p>
+    </div>
+  </section>
+
+  <section class="row" id="how">
+    <div class="side">
+      <p class="where">where you are</p>
+      <div class="phone" role="img" aria-label="The same dscoder page open in a phone browser. A short finished run: it read index.html, edited it, served the page, looked at a screenshot, and reported that the HUD is now in the top-right.">
+        <div class="scr">
+          <div class="pbar"><b>dscoder</b> kart · main <em>···</em></div>
+          <div class="pbody">
+            <p class="psaid">Move the HUD panel from the top-left to the
+              top-right, same style and spacing, all four rows.</p>
+            <div class="prow"><i>2</i><b>read</b><code>index.html</code></div>
+            <div class="prow"><i>4</i><b>edit</b><code>index.html</code><em class="a">+1</em><em class="d">&minus;1</em></div>
+            <div class="prow"><i>6</i><b>run</b><code>python -m http.server</code></div>
+            <div class="prow"><i>7</i><b>look</b><code>a screenshot</code></div>
+            <p class="psay">Looked at it: the HUD sits in the top-right, all
+              four rows, same distance from the edge as before.</p>
+            <div class="pcomp">Reply, or carry this on…</div>
+          </div>
+        </div>
+      </div>
+      <p class="paddr">dscoder.cc.cd/workbench</p>
+      <div class="foot">
+        <h2>A browser, and nothing else</h2>
+        <p>No app on this phone, no VPN, no terminal. It is the same page your
+          laptop gets, and it is <b>installable to the home screen</b> if you
+          want it there.</p>
+        <p>You can reply to a run while it is working, approve a command, or
+          stop it — from a train, on mobile data.</p>
+      </div>
+    </div>
+
+    <div class="seam"></div>
+
+    <div class="side rt">
+      <p class="where">where the work happens</p>
+      <div class="mach" role="img" aria-label="The same run seen on the computer: a strip reading Reachable at dscoder.cc.cd slash workbench, the folder C colon backslash Users backslash you backslash code backslash kart on branch main, and the diff in index.html where left colon 16px became right colon 16px.">
+        <div class="strip2"><i class="dot"></i>Reachable · dscoder.cc.cd/workbench
+          <em>watching 1 run</em></div>
+        <div class="mcrumb"><b>WORKBENCH</b> &nbsp;C:\Users\you\code\kart &nbsp;main</div>
+        <div class="mfile">index.html<em class="a">+1</em><em class="d">&minus;1</em></div>
+        <div class="mdiff">
+          <div><span>&nbsp;</span><span>8</span><span>&nbsp;&nbsp;&lt;style&gt;</span></div>
+          <div><span>&nbsp;</span><span>9</span><span>&nbsp;&nbsp;body { margin: 0; overflow: hidden; }</span></div>
+          <div><span>&nbsp;</span><span>10</span><span>&nbsp;&nbsp;canvas { display: block; }</span></div>
+          <div><span>&nbsp;</span><span>11</span><span>&nbsp;&nbsp;#hud {</span></div>
+          <div><span>&nbsp;</span><span>12</span><span>&nbsp;&nbsp;&nbsp;&nbsp;position: fixed;</span></div>
+          <div><span>&nbsp;</span><span>13</span><span>&nbsp;&nbsp;&nbsp;&nbsp;top: 16px;</span></div>
+          <div class="del"><span>&minus;</span><span>14</span><span>&nbsp;&nbsp;&nbsp;&nbsp;left: 16px;</span></div>
+          <div class="add"><span>+</span><span>14</span><span>&nbsp;&nbsp;&nbsp;&nbsp;right: 16px;</span></div>
+          <div><span>&nbsp;</span><span>15</span><span>&nbsp;&nbsp;&nbsp;&nbsp;font-family: ui-monospace;</span></div>
+          <div><span>&nbsp;</span><span>16</span><span>&nbsp;&nbsp;&nbsp;&nbsp;font-size: 13px;</span></div>
+          <div><span>&nbsp;</span><span>17</span><span>&nbsp;&nbsp;&nbsp;&nbsp;line-height: 1.5;</span></div>
+          <div><span>&nbsp;</span><span>18</span><span>&nbsp;&nbsp;}</span></div>
+        </div>
+      </div>
+      <div class="foot">
+        <h2>Your folder, your branch, your history</h2>
+        <p>The file it changed is the file you will commit. Nothing is copied to
+          a container or a sandbox in somebody's cloud, because there is nowhere
+          else for the work to be.</p>
+        <p>The app sits in the tray. Close the window and this computer is still
+          reachable; quit it and <b>nothing is left running</b>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The claim the product rests on, sitting astride the line it is about.
+       The box is centred on the seam, so its own divider falls on the seam:
+       the hairline runs through it. -->
+  <section class="row noterow">
+    <div class="side"></div>
+    <div class="seam">
+      <p class="note">
+        <!-- The break is set, not left to the measure. At 390 the spans go
+             back to inline and the space between them is why there is one. -->
+        <b><span>Nothing listens</span> <span>on your computer.</span></b>
+        <span class="why">It dials out and holds the line open, so a request from your
+          phone travels back down the connection your computer made. There is
+          no port to forward, no router to touch, and nothing on your machine
+          for anyone to knock on.</span>
+      </p>
+    </div>
+    <div class="side rt"></div>
+  </section>
+
+  <section class="row">
+    <div class="side">
+      <p class="where">what you are told</p>
+      <p class="quote">"Looked at it: the HUD sits in the top-right, all four
+        rows, same distance from the edge as before."</p>
+      <div class="foot">
+        <h2>It checks its work by looking</h2>
+        <p>Most of the ways an agent can be wrong are invisible to it. So before
+          it says a thing is done, it <b>serves the page, screenshots it, and
+          looks at the screenshot</b> — real vision, not a description it wrote
+          for itself.</p>
+      </div>
+    </div>
+    <div class="seam"></div>
+    <div class="side rt">
+      <p class="where">what it did, on the machine</p>
+      <div class="turns">
+        <div class="ln2"><i>6</i><b>run in background</b><code>python -m http.server 8137</code></div>
+        <div class="ln2"><i>7</i><b>screenshot</b><code>http://127.0.0.1:8137/index.html</code></div>
+        <div class="ln2"><i>8</i><b>looked, then said</b><code>the sentence on the left</code></div>
+        <div class="ln2"><i>9</i><b>done</b><code>&nbsp;</code></div>
+      </div>
+      <div class="foot">
+        <div class="shot" role="img" aria-label="An illustration of the screenshot the agent took: a browser game with a four-row panel in the top-right corner.">
+          <div class="sky">
+            <div class="hud"><span></span><span></span><span></span><span></span></div>
+            <div class="car"></div>
+          </div>
+        </div>
+        <p class="shotcap">what turn 7 captured</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="row" id="cost">
+    <div class="side">
+      <p class="where">what you pay</p>
+      <h2>Nothing</h2>
+      <p>No card, no trial, and no larger plan that this one is a sample of.
+        You need an account only so that one address knows which computers are
+        yours.</p>
+    </div>
+    <div class="seam"></div>
+    <div class="side rt">
+      <p class="where">what it runs on</p>
+      <h2>A chat session, not a paid API</h2>
+      <p>dscoder drives a <b>DeepSeek web session</b> from your computer
+        rather than billing an API key. Several accounts take turns, which is
+        what keeps the rate limiter quiet.</p>
+      <p>The sign-in token stays on the machine, encrypted to your Windows
+        login. It is never uploaded anywhere.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- The seam stops here: a download is about one computer, so there is no
+     longer a side to be on. -->
+<div class="wrap">
+  <section class="dlband" id="download">
+    <h2>Download</h2>
+    <p class="sub">One installer. Nothing else has to be on the machine —
+      dscoder is plain Node with no packages and no database.</p>
+
+    <div class="plat">
+      <div>
+        <h3>Windows</h3>
+        <p class="meta">10 and 11, 64-bit ·
+          <span class="unfilled" data-rel="windows.size" data-rel-blank="size">size</span></p>
+        <a class="btn" data-rel-download="windows" data-rel-label="Download for Windows" aria-disabled="true" role="link">Not published yet</a>
+      </div>
+      <div>
+        <p><b>Windows will warn you the first time you run it.</b> SmartScreen
+          shows a blue box saying "Windows protected your PC", and the button
+          you need is not on it yet: click <b>More info</b> first, then
+          <b>Run anyway</b>. You see this once, on the installer.</p>
+        <p style="margin-top:11px">It installs into your own user folder and
+          never asks for an administrator. From then on the app keeps itself
+          up to date.</p>
+      </div>
+    </div>
+
+    <div class="plat">
+      <div>
+        <h3>macOS</h3>
+        <p class="meta"><span data-rel-if="macosMinimum">macOS
+          <span class="unfilled" data-rel="macosMinimum" data-rel-blank="version">version</span>
+          and later · </span>Apple silicon and Intel ·
+          <span class="unfilled" data-rel="macos.size" data-rel-blank="size">size</span></p>
+        <a class="btn" data-rel-download="macos" data-rel-label="Download for macOS" aria-disabled="true" role="link">Not published yet</a>
+      </div>
+      <div>
+        <p style="margin-bottom:14px"><b>macOS will not open it until you
+          clear the download flag yourself.</b> Double-clicking gives you a
+          message saying the app cannot be opened, and there is no "open
+          anyway" button to press. Three steps:</p>
+        <ol>
+          <li>Open the disk image and drag <b>dscoder</b> into your
+            Applications folder.</li>
+          <li>Open <b>Terminal</b> (Applications → Utilities) and paste this
+            line, then press Return:
+            <pre><code>xattr -d com.apple.quarantine /Applications/dscoder.app</code></pre>
+            That removes one label macOS attaches to anything downloaded from
+            the internet — the label is the only reason it refused. The
+            command changes nothing inside the app and nothing else on your
+            Mac.</li>
+          <li>Open dscoder the normal way.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="unsigned">
+      <div class="inner">
+        <h3>dscoder is not code-signed, and will not be</h3>
+        <p>There is no developer certificate behind these files, so Windows
+          and macOS both treat dscoder as software from an unidentified
+          developer. That is a fact about how it is distributed, not a sign
+          that something is wrong with your download, and the steps above are
+          how you get past it.</p>
+        <p>On macOS it has one further consequence, and it is worth knowing
+          before you install rather than after: an unsigned app is not allowed
+          to replace its own files, so <b>every macOS update is a manual
+          download</b>. dscoder will tell you when a new version is out; you
+          download it and repeat the three steps. On Windows the app updates
+          itself.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="download.html">Download</a>
+    <a href="#how">How it works</a>
+    <a href="https://dscoder.cc.cd">Sign in</a>
+    <span class="rt">dscoder.cc.cd</span>
+  </div>
+</footer>
+
+<script src="assets/release.js"></script>
+</body>
+</html>

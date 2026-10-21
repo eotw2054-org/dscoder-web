@@ -1,0 +1,75 @@
+/* IBM Plex Sans and IBM Plex Mono, served from this repository.
+ *
+ * The app itself asks for these two faces (ui/index.html :root) and falls
+ * back to whatever the machine has. A page that is meant to look like the
+ * product cannot do that, so the files are here: no Google Fonts, no CDN,
+ * nothing fetched from a third party when somebody opens the site.
+ *
+ * Only the subsets this site can show are shipped:
+ *   Latin1  ASCII, Latin-1, curly quotes, en/em dash, ellipsis, minus sign
+ *   Pi      the arrow in "Applications -> Utilities", and the rest of the
+ *           general-punctuation block
+ * Together that is ~250 KB for seven faces. The Cyrillic, Greek and extended
+ * Latin subsets are not here because nothing on the site is written in them;
+ * if a page ever needs one, copy it out of the @ibm/plex-sans npm package and
+ * add a @font-face with the unicode-range from that package's own CSS.
+ *
+ * The weights are the ones the pages use and no others: 400 for body, 500
+ * for small monospace labels, 600 for headings and 700 for the wordmark.
+ * There is no 650 face, which is why nothing asks for one -- the mock's
+ * font-weight:650 was landing on a synthesised weight. 600 is SemiBold, a
+ * real drawing.
+ *
+ * Licence: SIL Open Font Licence 1.1, in fonts/LICENSE.txt.
+ */
+
+/* ── IBM Plex Sans ──────────────────────────────────────────────────── */
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;
+  src:url("fonts/IBMPlexSans-Regular-Latin1.woff2") format("woff2");
+  unicode-range:U+0000,U+000D,U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201A,U+201C-201E,U+2020-2022,U+2026,U+2030,U+2039-203A,U+2044,U+20AC,U+2122,U+2212,U+FB01-FB02}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;
+  src:url("fonts/IBMPlexSans-Regular-Pi.woff2") format("woff2");
+  unicode-range:U+2000-200D,U+2015,U+2028-2029,U+202F,U+2032-2033,U+2190-2199,U+21A9-21AA,U+2212,U+2248,U+2260,U+2264-2265,U+2713,U+FEFF,U+FFFD}
+
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:500;font-display:swap;
+  src:url("fonts/IBMPlexSans-Medium-Latin1.woff2") format("woff2");
+  unicode-range:U+0000,U+000D,U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201A,U+201C-201E,U+2020-2022,U+2026,U+2030,U+2039-203A,U+2044,U+20AC,U+2122,U+2212,U+FB01-FB02}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:500;font-display:swap;
+  src:url("fonts/IBMPlexSans-Medium-Pi.woff2") format("woff2");
+  unicode-range:U+2000-200D,U+2015,U+2028-2029,U+202F,U+2032-2033,U+2190-2199,U+21A9-21AA,U+2212,U+2248,U+2260,U+2264-2265,U+2713,U+FEFF,U+FFFD}
+
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;
+  src:url("fonts/IBMPlexSans-SemiBold-Latin1.woff2") format("woff2");
+  unicode-range:U+0000,U+000D,U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201A,U+201C-201E,U+2020-2022,U+2026,U+2030,U+2039-203A,U+2044,U+20AC,U+2122,U+2212,U+FB01-FB02}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;
+  src:url("fonts/IBMPlexSans-SemiBold-Pi.woff2") format("woff2");
+  unicode-range:U+2000-200D,U+2015,U+2028-2029,U+202F,U+2032-2033,U+2190-2199,U+21A9-21AA,U+2212,U+2248,U+2260,U+2264-2265,U+2713,U+FEFF,U+FFFD}
+
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:700;font-display:swap;
+  src:url("fonts/IBMPlexSans-Bold-Latin1.woff2") format("woff2");
+  unicode-range:U+0000,U+000D,U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201A,U+201C-201E,U+2020-2022,U+2026,U+2030,U+2039-203A,U+2044,U+20AC,U+2122,U+2212,U+FB01-FB02}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:700;font-display:swap;
+  src:url("fonts/IBMPlexSans-Bold-Pi.woff2") format("woff2");
+  unicode-range:U+2000-200D,U+2015,U+2028-2029,U+202F,U+2032-2033,U+2190-2199,U+21A9-21AA,U+2212,U+2248,U+2260,U+2264-2265,U+2713,U+FEFF,U+FFFD}
+
+/* ── IBM Plex Mono ──────────────────────────────────────────────────── */
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;
+  src:url("fonts/IBMPlexMono-Regular-Latin1.woff2") format("woff2");
+  unicode-range:U+0000,U+000D,U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201A,U+201C-201E,U+2020-2022,U+2026,U+2030,U+2039-203A,U+2044,U+20AC,U+2122,U+2212,U+FB01-FB02}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;
+  src:url("fonts/IBMPlexMono-Regular-Pi.woff2") format("woff2");
+  unicode-range:U+2000-200D,U+2015,U+2028-2029,U+202F,U+2032-2033,U+2190-2199,U+21A9-21AA,U+2212,U+2248,U+2260,U+2264-2265,U+2713,U+FEFF,U+FFFD}
+
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;
+  src:url("fonts/IBMPlexMono-Medium-Latin1.woff2") format("woff2");
+  unicode-range:U+0000,U+000D,U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201A,U+201C-201E,U+2020-2022,U+2026,U+2030,U+2039-203A,U+2044,U+20AC,U+2122,U+2212,U+FB01-FB02}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;
+  src:url("fonts/IBMPlexMono-Medium-Pi.woff2") format("woff2");
+  unicode-range:U+2000-200D,U+2015,U+2028-2029,U+202F,U+2032-2033,U+2190-2199,U+21A9-21AA,U+2212,U+2248,U+2260,U+2264-2265,U+2713,U+FEFF,U+FFFD}
+
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:700;font-display:swap;
+  src:url("fonts/IBMPlexMono-Bold-Latin1.woff2") format("woff2");
+  unicode-range:U+0000,U+000D,U+0020-007E,U+00A0-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2018-201A,U+201C-201E,U+2020-2022,U+2026,U+2030,U+2039-203A,U+2044,U+20AC,U+2122,U+2212,U+FB01-FB02}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:700;font-display:swap;
+  src:url("fonts/IBMPlexMono-Bold-Pi.woff2") format("woff2");
+  unicode-range:U+2000-200D,U+2015,U+2028-2029,U+202F,U+2032-2033,U+2190-2199,U+21A9-21AA,U+2212,U+2248,U+2260,U+2264-2265,U+2713,U+FEFF,U+FFFD}

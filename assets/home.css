@@ -1,0 +1,307 @@
+/* The home page — "the seam".
+ *
+ * One hairline runs the length of the page. Everything left of it is you,
+ * somewhere else; everything right of it is your computer. The line is the
+ * boundary nothing crosses inward, and it is the page's only loud element.
+ *
+ * Three things changed from the mock, and nothing else:
+ *
+ *  1. The seam now starts directly under the headline instead of a screen
+ *     further down, and the first thing on the right of it is the interface
+ *     itself. The mock's first screen was type on an empty field: a reader
+ *     who owes the page nothing had no reason to stay. The fix is in the
+ *     page's own language rather than a panel bolted across the top — the
+ *     right of the line is "your computer", so the product belongs there.
+ *
+ *  2. The slack is gone. Where two columns had different amounts in them
+ *     the line used to run on alone for a couple of hundred pixels; now the
+ *     shorter column's closing block sinks to the foot of the row (.foot),
+ *     so the hairline always has something beside it.
+ *
+ *  3. The note astride the line is no longer centred body text. It is split
+ *     down its own middle, and because it is centred on the seam that split
+ *     falls exactly on the seam: the hairline runs straight through the box,
+ *     claim on one side, how it works on the other.
+ *
+ * Colours, the 3px radius and the two faces are the product's own
+ * (ui/index.html :root). Small grey text is --ink-60 rather than the app's
+ * --ink-35: at --ink-35 it is 2.3:1 on this paper, which is fine in a tool
+ * you stare at all day with a known context and not fine on a page a
+ * stranger reads once. --ink-35 is left to things that carry no words:
+ * diff gutters, the dot, rules.
+ */
+
+/* ── the sentence ───────────────────────────────────────────────────── */
+/* Said once, full width, before the page takes a side. One line per
+   sentence: the second is the turn, and it only lands if it arrives whole. */
+.open{padding:52px 0 30px}
+.open h1{font-size:50px;margin:0}
+.open h1 span{display:block}
+
+/* ── the seam ───────────────────────────────────────────────────────── */
+/* The middle track is a real 1px grid column, so the line is continuous
+   down every row that uses it rather than painted per section. Every row
+   uses the same ratio: the moment one of them does not, the line jogs. */
+.row{display:grid;grid-template-columns:minmax(0,41fr) 1px minmax(0,59fr)}
+.seam{background:var(--rule)}
+.side{display:flex;flex-direction:column;padding:38px 46px 42px 0}
+.side.rt{padding:38px 0 42px 46px}
+.side h2{font-size:25px;margin-bottom:11px}
+/* :where(.side) so this compound weighs nothing: it is the default for a
+   plain paragraph in a column, and every .lede / .where / .quote / .cap
+   below must be able to override it with a single class. Written as
+   `.side p` it is (0,1,1) and quietly wins against all of them — which is
+   what was happening, and why the mock's labels came out at body size. */
+:where(.side) p{font-size:15.5px;line-height:1.58;color:var(--ink-60);max-width:48ch}
+:where(.side) p+p{margin-top:12px}
+:where(.side) p b{color:var(--ink);font-weight:600}
+.where{font:400 11.5px/1.5 var(--mono);color:var(--ink-60);margin-bottom:22px;
+  letter-spacing:.01em}
+/* Fix 2. The closing block of the shorter column sinks to the foot of the
+   row, so both columns end on the same line and the hairline is never
+   running past nothing. */
+.foot{margin-top:auto}
+
+/* ── the opening row: the lede, and the thing itself ────────────────── */
+.lead .side{padding-top:34px}
+.lede{font-size:19.5px;line-height:1.58;color:var(--ink-60)}
+.lede b{color:var(--ink);font-weight:600}
+.cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:28px}
+.free{font-size:13.5px;line-height:1.5;color:var(--ink-60);padding-top:30px;
+  max-width:40ch}
+.cap{font:400 11.5px/1.5 var(--mono);color:var(--ink-60);margin-top:11px}
+
+/* ── the interface, on the computer's side of the line ──────────────── */
+/* A fragment of the real thing, with made-up work in it. The panel is a
+   picture: role="img" on the markup, so a screen reader gets the sentence
+   in the aria-label instead of forty loose table cells. */
+.pn{display:grid;grid-template-columns:186px minmax(0,1fr);
+  border:1px solid var(--rule);border-radius:3px;background:var(--paper-2);
+  overflow:hidden;font-size:13px;line-height:1.5}
+.pn-side{background:var(--paper);border-right:1px solid var(--rule);padding:13px 0 15px}
+.pn-brand{padding:0 14px 11px;font-size:15px;font-weight:700;letter-spacing:-.018em}
+.pn-brand i{font:500 11px/1 var(--mono);font-style:normal;color:var(--ink-60);
+  margin-left:7px;letter-spacing:0}
+.pn-new{margin:0 10px 13px;padding:8px 10px;border-radius:3px;background:var(--ink);
+  color:var(--paper-2);font-size:12.5px;font-weight:600;text-align:center}
+.pn-lbl{padding:9px 14px 3px;font-size:11px;color:var(--ink-60);font-weight:600}
+.pn-item{display:flex;gap:8px;padding:4px 14px;color:var(--ink-60)}
+.pn-item i{margin-left:auto;font:400 11px/1.5 var(--mono);font-style:normal;color:var(--ink-60)}
+.pn-run{display:block;padding:6px 14px;color:var(--ink-60);border-left:2px solid transparent}
+.pn-run i{display:block;font:400 10.5px/1.5 var(--mono);font-style:normal;
+  color:var(--ink-60);margin-top:1px}
+.pn-run.on{background:#0000000a;border-left-color:var(--ink);color:var(--ink);font-weight:500}
+.pn-main{padding:14px 18px 16px;min-width:0}
+.pn-crumb{font:400 11.5px/1.5 var(--mono);color:var(--ink-60);margin-bottom:8px}
+/* Not an <h3>: the panel is a picture of an interface, and a heading inside
+   it would sit in the document outline between the page's own h1 and h2. */
+.pn-title{font-size:16.5px;font-weight:600;letter-spacing:-.02em;
+  line-height:1.28;margin-bottom:10px}
+.pn-pills{display:flex;align-items:center;gap:13px;margin-bottom:12px;flex-wrap:wrap;
+  font:400 11.5px/1 var(--mono);color:var(--ink-60)}
+/* Two words of status at 11.5px. The app's --add is 4.5:1 and --warn 3.0:1
+   on this plate, which is a tool's contrast; darkened the same way the diff
+   rows below already are (#15563a, #8d2718). Same hue, lower value — the
+   picture still says what the app says. */
+.pn-live{display:inline-flex;align-items:center;gap:6px;color:#1A6B42;font-weight:500}
+.pn-pills b{color:var(--add);font-weight:600}
+.pn-pills b.d{color:var(--del);font-weight:600}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--add);flex:none}
+@media (prefers-reduced-motion:no-preference){
+  .dot{animation:bk 1.9s ease-in-out infinite}
+  @keyframes bk{0%,100%{opacity:1}50%{opacity:.32}}
+}
+/* What you said is in full ink in the app, and it needs to be here too:
+   .side p would otherwise hand it the section's grey, which is 4.3:1 on
+   this blue. */
+.pn-said{background:var(--said);border-radius:3px;padding:9px 12px;
+  margin-bottom:12px;font-size:13px;line-height:1.5;color:var(--ink);max-width:none}
+.pn-row{display:flex;align-items:baseline;gap:10px;padding:6px 0;
+  border-top:1px solid var(--rule)}
+.pn-row>i{font:400 11px/1.5 var(--mono);font-style:normal;color:var(--ink-35);
+  width:17px;flex:none;text-align:right}
+.pn-row>b{font-weight:600;font-size:12px;width:33px;flex:none}
+.pn-row>code{font:400 12px/1.5 var(--mono);color:var(--ink-60);min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pn-row>em{margin-left:auto;font:400 11px/1.5 var(--mono);font-style:normal;
+  color:var(--ink-60);flex:none;padding-left:8px}
+.pn-row em.a{color:var(--add)}
+.pn-row em.d{color:var(--del)}
+.pn-row.ask{border-top-color:var(--warn)}
+.pn-row.ask>em{color:#8F5F0C}
+.pn-ask{display:flex;align-items:center;gap:10px;margin-top:8px;padding:10px 12px;
+  border:1px solid var(--warn);border-radius:3px;background:#b67a1214;font-size:12.5px;
+  flex-wrap:wrap}
+.pn-ask .q{font-weight:600}
+.pn-ask .acts{margin-left:auto;display:flex;gap:7px}
+.pn-ask .acts b{padding:5px 11px;border-radius:3px;background:var(--ink);
+  color:var(--paper-2);font-size:11.5px;font-weight:600}
+.pn-ask .acts b.g{background:none;color:var(--ink-60);border:1px solid var(--rule);font-weight:500}
+
+/* ── the phone ──────────────────────────────────────────────────────── */
+.phone{width:278px;border:1px solid var(--ink-35);border-radius:20px;
+  background:var(--paper);padding:9px 7px 11px;margin-bottom:18px}
+.phone .scr{border:1px solid var(--rule);border-radius:13px;overflow:hidden;
+  background:var(--paper-2)}
+.pbar{display:flex;align-items:center;gap:7px;padding:8px 10px;
+  border-bottom:1px solid var(--rule);background:var(--paper);
+  font:400 10px/1.4 var(--mono);color:var(--ink-60)}
+.pbar b{font:700 12px/1 var(--sans);color:var(--ink);letter-spacing:-.018em}
+.pbar em{margin-left:auto;font-style:normal;font-size:12px;color:var(--ink-35)}
+.pbody{padding:10px 11px 11px}
+.psaid{background:var(--said);border-radius:3px;padding:8px 10px;
+  font-size:11.5px;line-height:1.45;margin-bottom:9px;color:var(--ink);max-width:none}
+.prow{display:flex;align-items:baseline;gap:8px;padding:4px 0;
+  border-top:1px solid var(--rule);font-size:11px}
+.prow i{font:400 10.5px/1.4 var(--mono);font-style:normal;color:var(--ink-35);
+  width:12px;flex:none;text-align:right}
+.prow b{font-size:10.5px;font-weight:600;width:29px;flex:none}
+.prow code{font:400 10.5px/1.4 var(--mono);color:var(--ink-60);min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prow em{margin-left:auto;font-style:normal;font:400 10.5px/1.4 var(--mono);flex:none}
+.prow em.a{color:var(--add)}
+.prow em.d{color:var(--del);padding-left:4px}
+.psay{padding:7px 0 2px;border-top:1px solid var(--rule);font-size:11px;
+  line-height:1.45;color:var(--ink)}
+.pcomp{margin-top:9px;border:1px solid var(--rule);border-radius:3px;
+  background:var(--paper);padding:8px 10px;font-size:11px;color:var(--ink-60)}
+.paddr{font:400 11px/1.5 var(--mono);color:var(--ink-60);margin-bottom:16px;
+  overflow-wrap:anywhere}
+
+/* ── the machine ────────────────────────────────────────────────────── */
+.mach{border:1px solid var(--rule);border-radius:3px;background:var(--paper-2);
+  overflow:hidden;margin-bottom:18px}
+.strip2{display:flex;align-items:center;gap:9px;padding:8px 13px;
+  border-bottom:1px solid var(--rule);background:var(--ink);color:var(--paper-2);
+  font:400 11px/1.4 var(--mono)}
+.strip2 .dot{background:#5fcf96}
+.strip2 em{margin-left:auto;font-style:normal;color:#ffffffa8}
+.mcrumb{padding:11px 14px 9px;font:400 11.5px/1.5 var(--mono);color:var(--ink-60)}
+.mcrumb b{color:var(--ink);font-weight:500}
+.mfile{display:flex;align-items:baseline;gap:10px;padding:7px 14px;
+  border-top:1px solid var(--rule);font:400 12px/1.5 var(--mono)}
+.mfile em{margin-left:auto;font-style:normal;font-size:11px}
+.mfile em.a{color:var(--add)}
+.mfile em.d{color:var(--del);padding-left:6px}
+.mdiff{border-top:1px solid var(--rule);padding:9px 0 10px;background:var(--paper)}
+.mdiff div{display:flex;gap:10px;padding:1px 14px;font:400 11.5px/1.65 var(--mono)}
+.mdiff div span:first-child{width:11px;color:var(--ink-35);flex:none;text-align:center}
+.mdiff div span:nth-child(2){width:18px;color:var(--ink-35);flex:none;text-align:right}
+.mdiff .add{background:#1f7a4c1f;color:#15563a}
+.mdiff .del{background:#b3321f1a;color:#8d2718}
+
+/* ── the claim astride the line ─────────────────────────────────────── */
+/* Fix 3. The box is centred on the seam, so a 1fr/1fr split inside it puts
+   its own divider exactly on the seam: the hairline goes through the box
+   rather than past it. Nothing here is centred text. */
+.noterow .seam{padding:44px 0}
+.note{position:relative;left:50%;transform:translateX(-50%);z-index:1;
+  width:min(820px,calc(100vw - 56px));margin:0;
+  background:var(--paper-2);border:1px solid var(--rule);border-radius:3px;
+  display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+/* The break is set rather than left to the measure: "Nothing listens" is
+   the half that does the work, and a 410px cell breaks it somewhere else
+   every time the font changes. */
+.note b{display:block;font-size:24px;font-weight:600;letter-spacing:-.018em;
+  line-height:1.2;padding:22px 26px 24px}
+.note b span{display:block}
+.note .why{display:block;font-size:14.5px;line-height:1.58;color:var(--ink-60);
+  padding:22px 24px 24px;border-left:1px solid var(--rule)}
+
+/* ── looking ────────────────────────────────────────────────────────── */
+.turns{border:1px solid var(--rule);border-radius:3px;background:var(--paper-2);
+  overflow:hidden;margin-bottom:16px}
+.turns .ln2{display:flex;align-items:baseline;gap:11px;padding:9px 14px;
+  border-bottom:1px solid var(--rule);font-size:13px}
+.turns .ln2:last-child{border-bottom:0}
+.turns i{font:400 11px/1.5 var(--mono);font-style:normal;color:var(--ink-35);
+  width:14px;flex:none;text-align:right}
+.turns b{font-size:11.5px;font-weight:600;width:104px;flex:none}
+.turns code{font:400 11.5px/1.5 var(--mono);color:var(--ink-60);min-width:0;
+  overflow-wrap:anywhere}
+.shot{border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:#0d1620;
+  max-width:330px}
+.shot .sky{height:140px;position:relative;
+  background:linear-gradient(#1b2b3d 0%,#2f4a63 62%,#3f5a44 62%,#33492f 100%)}
+.shot .hud{position:absolute;top:10px;right:10px;width:80px;padding:6px 7px;
+  border:1px solid #ffffff2e;border-radius:3px;background:#0b1622b3}
+.shot .hud span{display:block;height:3px;border-radius:2px;background:#cfe0f5;
+  margin-bottom:4px;opacity:.82}
+.shot .hud span:nth-child(2){width:72%}
+.shot .hud span:nth-child(3){width:58%}
+.shot .hud span:nth-child(4){width:66%;margin-bottom:0}
+.shot .car{position:absolute;left:44%;top:98px;width:24px;height:12px;border-radius:3px;
+  background:#c4453a}
+.shotcap{font:400 11.5px/1.5 var(--mono);color:var(--ink-60);margin-top:8px}
+.quote{font-size:17px;line-height:1.5;color:var(--ink);max-width:36ch;
+  border-left:2px solid var(--rule);padding-left:16px;margin-bottom:14px}
+
+/* ── download ───────────────────────────────────────────────────────── */
+/* The seam stops here: a download is about one computer, so there is no
+   longer a side to be on. */
+.dlband{border-top:1px solid var(--rule);padding:58px 0 10px}
+.dlband h2{font-size:32px;margin-bottom:13px}
+.dlband .sub{font-size:16.5px;color:var(--ink-60);max-width:60ch;margin-bottom:34px}
+.plat{display:grid;grid-template-columns:270px minmax(0,1fr);gap:46px;
+  padding:28px 0;border-top:1px solid var(--rule);align-items:start}
+.plat h3{font-size:20px;margin-bottom:4px}
+.plat .meta{font:400 11.5px/1.6 var(--mono);color:var(--ink-60);margin-bottom:16px}
+.plat p{font-size:15.5px;line-height:1.58;color:var(--ink-60);max-width:62ch}
+.plat p b{color:var(--ink);font-weight:600}
+.plat ol{margin:0;padding-left:1.35em;font-size:15.5px;line-height:1.58;color:var(--ink-60)}
+.plat li{margin-bottom:9px;max-width:60ch}
+.plat li b{color:var(--ink);font-weight:600}
+.plat pre{margin:9px 0;padding:12px 14px;border:1px solid var(--rule);border-radius:3px;
+  background:var(--paper-2);overflow-x:auto}
+.plat code{font:400 13px/1.5 var(--mono)}
+.unsigned{border-top:1px solid var(--rule);padding:30px 0 0;margin-top:28px}
+.unsigned .inner{border-left:2px solid var(--warn);padding:2px 0 2px 18px;max-width:66ch}
+.unsigned h3{font-size:18px;margin-bottom:8px}
+.unsigned p{font-size:15.5px;line-height:1.58;color:var(--ink-60)}
+.unsigned p+p{margin-top:11px}
+.unsigned p b{color:var(--ink);font-weight:600}
+
+/* ── narrow: the seam lies down ─────────────────────────────────────── */
+@media (max-width:900px){
+  /* Tight at the top, because the whole argument for staying is the panel
+     below the lede and it has to get above the fold on an 844px screen. */
+  .open{padding:26px 0 16px}
+  .open h1{font-size:32px}
+  .lede{font-size:16.5px;max-width:none}
+  .btn{width:100%;justify-content:center}
+  .cta{margin-top:22px}
+  .free{padding-top:18px;max-width:none}
+  /* minmax(0,…), not 1fr: a bare 1fr floors at min-content, and the diff and
+     the command block are unbreakable strings wide enough to push the page
+     out sideways. */
+  .row{grid-template-columns:minmax(0,1fr)}
+  /* The boundary is still a boundary; it is just horizontal now. */
+  .seam{height:1px;margin:0}
+  .noterow .seam{height:auto;background:none;padding:26px 0}
+  .side,.side.rt{padding:26px 0 28px}
+  .lead .side{padding-top:0;padding-bottom:22px}
+  .lead .side.rt{padding-top:24px}
+  .side h2{font-size:21px}
+  .where{margin-bottom:16px}
+  /* Nothing sinks when there is only one column: there is no second column
+     for it to line up with, and the gap would be pure emptiness. */
+  .foot{margin-top:0}
+  /* The sidebar is the first thing a 390px screen cannot hold, and it is
+     the least of what the panel is for. */
+  .pn{grid-template-columns:minmax(0,1fr)}
+  .pn-side{display:none}
+  .pn-main{padding:13px 14px 15px}
+  .pn-ask .acts{margin-left:0;width:100%}
+  .note{width:auto;left:auto;transform:none;grid-template-columns:minmax(0,1fr)}
+  .note b{font-size:19px;padding:18px 18px 0}
+  .note b span{display:inline}
+  .note .why{padding:10px 18px 18px;border-left:0}
+  .phone{width:100%;max-width:300px}
+  /* A command somebody has to copy has to be visible, so it wraps here
+     rather than scrolling sideways out of sight. Soft wraps are not
+     characters: what you copy is still the one line. */
+  .plat pre{white-space:pre-wrap;overflow-wrap:anywhere}
+  .dlband{padding:38px 0 10px}
+  .dlband h2{font-size:25px}
+  .plat{grid-template-columns:minmax(0,1fr);gap:16px;padding:24px 0}
+}

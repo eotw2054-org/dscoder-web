@@ -1,0 +1,7 @@
+# The pages are served as they are stored, so store them one way: LF in the
+# repository whatever the machine that edits them does.
+* text=auto eol=lf
+
+# Fonts are not text and must never be line-ending-converted.
+*.woff2 binary
+*.png   binary

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Download dscoder</title>
+<meta name="description" content="How to install dscoder on Windows and macOS, including the warnings each one shows because dscoder is not code-signed.">
+<meta name="color-scheme" content="light">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/download.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to the page</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="index.html">dscoder<i data-rel-version-mark></i></a>
+    <nav>
+      <a href="index.html">What it is</a>
+      <a class="sec" href="#windows">Windows</a>
+      <a class="sec" href="#macos">macOS</a>
+      <!-- Always "Sign in": a static page cannot know who is reading it. -->
+      <a href="https://dscoder.cc.cd">Sign in</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <section class="head">
+    <h1>Download dscoder</h1>
+    <p>One installer, and nothing else to set up. dscoder is plain Node with
+      no packages and no database, so what you download is the whole of it.</p>
+  </section>
+
+  <!-- First, because it is what changes whether somebody should click. -->
+  <section class="first">
+    <h2>Your computer will warn you, and here is why</h2>
+    <p><b>dscoder is not code-signed.</b> There is no developer certificate
+      behind these files, so Windows and macOS both class it as software from
+      an unidentified developer and stand in the way the first time you open
+      it. That is a fact about how dscoder is distributed — it is not a sign
+      that something went wrong with your download, and it will not change.</p>
+    <p>What it means in practice is one extra step on Windows, three on macOS,
+      and they are written out in full below. It also means one thing on macOS
+      that is easy to find out too late: <b>an unsigned app cannot update
+      itself</b>, so every macOS update is a download you do by hand. On
+      Windows, updates are automatic.</p>
+  </section>
+
+  <section class="plat" id="windows">
+    <div>
+      <h2>Windows</h2>
+      <p class="meta">Windows 10 and 11, 64-bit<br>
+        <span class="unfilled" data-rel="windows.file" data-rel-blank="file name">file name</span> ·
+        <span class="unfilled" data-rel="windows.size" data-rel-blank="size">size</span></p>
+      <a class="btn" data-rel-download="windows" data-rel-label="Download for Windows" aria-disabled="true" role="link">Not published yet</a>
+      <p class="note">Installs for you only, into your own user folder. No
+        administrator password is asked for.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Run the installer</h3>
+        <p>Open the <code>.exe</code> you just downloaded. It asks where to
+          put dscoder and makes its own Desktop and Start Menu shortcuts.</p>
+      </li>
+      <li>
+        <h3>Get past the SmartScreen warning</h3>
+        <p>A blue box appears saying <span class="said">Windows protected your
+          PC</span>. The button you want is not on it yet — it is hidden
+          behind the small <b>More info</b> link. Click <b>More info</b>, and
+          a <b>Run anyway</b> button appears underneath. Click that.</p>
+        <p>This is Windows telling you it does not recognise who published the
+          file, which is true: nobody has signed it. You will see this once,
+          on the installer, and not again.</p>
+      </li>
+      <li>
+        <h3>Open dscoder</h3>
+        <p>It starts the engine, puts an icon in the notification area, and
+          opens the window. On Windows the tray icon starts hidden under the
+          <b>^</b> arrow — drag it onto the taskbar if you want to keep an eye
+          on it.</p>
+        <p>From here on, <b>the app keeps itself up to date</b>: it fetches
+          new versions, checks them, and swaps them in the next time it
+          starts — never in the middle of a run.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="plat" id="macos">
+    <div>
+      <h2>macOS</h2>
+      <p class="meta"><span data-rel-if="macosMinimum">macOS
+          <span class="unfilled" data-rel="macosMinimum" data-rel-blank="version">version</span>
+          and later<br></span>Apple silicon and Intel ·
+        <span class="unfilled" data-rel="macos.size" data-rel-blank="size">size</span></p>
+      <a class="btn" data-rel-download="macos" data-rel-label="Download for macOS" aria-disabled="true" role="link">Not published yet</a>
+      <p class="note">Updates on macOS are a manual download, every time. See
+        step 4.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Drag it to Applications</h3>
+        <p>Open the <code>.dmg</code> and drag <b>dscoder</b> onto the
+          Applications folder shown beside it. Do this before the next step —
+          the command below names that location.</p>
+      </li>
+      <li>
+        <h3>Clear the download flag</h3>
+        <p>If you open dscoder now, macOS refuses and says the app is damaged
+          or cannot be opened. It is not damaged. When you downloaded it,
+          macOS attached an invisible label to the file meaning "this came
+          from the internet", and because nobody has signed the app, macOS
+          will not offer you a way past that label — there is no
+          <b>Open anyway</b> button to press. You take the label off yourself.</p>
+        <p>Open <b>Terminal</b> (Applications → Utilities → Terminal), paste
+          this one line, and press Return:</p>
+        <pre><code>xattr -d com.apple.quarantine /Applications/dscoder.app</code></pre>
+        <p><b>What that does:</b> <code>xattr</code> is the built-in tool for
+          the hidden labels macOS keeps alongside a file. <code>-d</code>
+          means delete one, and <code>com.apple.quarantine</code> is the name
+          of the "downloaded from the internet" label. The command removes
+          that one label from that one app. It does not change anything inside
+          dscoder, it does not touch any other app, and it does not alter any
+          setting on your Mac.</p>
+        <p>Terminal prints nothing if it worked. That is the normal answer.</p>
+      </li>
+      <li>
+        <h3>Open dscoder</h3>
+        <p>Open it from Applications the usual way. It starts the engine, puts
+          an icon in the menu bar, and opens the window.</p>
+      </li>
+      <li>
+        <h3>Expect to repeat this for every update</h3>
+        <p>An unsigned app is not allowed to replace its own files on macOS,
+          so dscoder cannot update itself here. When a new version is out the
+          app tells you, and you come back to this page, download it, and do
+          steps 1 and 2 again. <b>There is no automatic update on macOS.</b></p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="after">
+    <h2>After it is installed</h2>
+    <div class="grid">
+      <div>
+        <h3>It opens on your own machine first</h3>
+        <p>The engine listens on <code>127.0.0.1:8479</code> and on nothing
+          else. You can use dscoder on that computer straight away, with no
+          account and nothing paired.</p>
+      </div>
+      <div>
+        <h3>Reaching it from elsewhere is a separate step</h3>
+        <p>Sign in, press <b>Add a machine</b>, and paste the code it gives
+          you into the app. The computer then dials out and answers at
+          <code>dscoder.cc.cd/&lt;name&gt;</code>.</p>
+      </div>
+      <div>
+        <h3>You will need a DeepSeek account</h3>
+        <p>dscoder drives a chat.deepseek.com web session rather than a paid
+          API, so there is no key to buy. Sign in once, in the window it
+          opens for you. The token stays on your machine, encrypted to your
+          Windows login.</p>
+      </div>
+      <div>
+        <h3>Removing it</h3>
+        <p>Windows: <b>Settings → Apps</b>, then uninstall dscoder. macOS:
+          drag it from Applications to the Bin. Your run history and settings
+          live in <code>~/.dscoder</code>; delete that folder too if you want
+          nothing left.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tail">
+    <h2>The installer is not signed. The updates are checked.</h2>
+    <p>These two are worth keeping apart, because they are different
+      promises. Nobody has signed the installer you are about to run, and
+      your operating system says so.</p>
+    <p>Once dscoder is installed, every update it fetches is a different
+      matter: each release is signed on the maker's own computer with a key
+      that has never been uploaded to the server handing the files out, and
+      the app checks that signature — and the hash of every single file —
+      against a key built into itself before writing anything. <b>There is no
+      prompt and no override.</b> Whoever controls the download server can
+      serve you an old release or no release; they cannot put a new line of
+      code on your computer.</p>
+    <p>A Linux AppImage is built from the same step and is on the releases
+      page. Windows is the build that has had by far the most use.</p>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html">What it is</a>
+    <a href="#windows">Windows</a>
+    <a href="#macos">macOS</a>
+    <a href="https://dscoder.cc.cd">Sign in</a>
+    <span class="rt">dscoder.cc.cd</span>
+  </div>
+</footer>
+
+<script src="assets/release.js"></script>
+</body>
+</html>

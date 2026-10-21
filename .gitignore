@@ -1,0 +1,4 @@
+# What check.mjs writes. Pictures of the pages, rebuilt on demand, and not
+# worth a megabyte each in the history.
+_shots/
+_*.png
