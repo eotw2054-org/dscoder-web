@@ -37,6 +37,10 @@ const RELEASE = {
     url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.1/dscoder-0.1.1-win-x64.exe',
   },
 
+  // Linux is not offered. It still builds in CI, first and alone, because
+  // it is the cheapest runner and almost everything that breaks a release
+  // breaks on all three -- but nothing is published from it.
+
   // Two machines, two files, and picking the wrong one gets you an app that
   // will not open. Apple silicon is every Mac since 2020; Intel is before
   // that. One button each, named after the machine rather than the chip
@@ -52,11 +56,6 @@ const RELEASE = {
     url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.1/dscoder-0.1.1-mac-x64.dmg',
   },
 
-  linux: {
-    file: 'dscoder-0.1.1-linux-x86_64.AppImage',
-    size: '120 MB',
-    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.1/dscoder-0.1.1-linux-x86_64.AppImage',
-  },
 };
 
 /* ===================================================================== *
