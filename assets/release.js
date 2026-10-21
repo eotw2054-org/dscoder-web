@@ -21,12 +21,24 @@
  */
 
 const RELEASE = {
-  version:      null,   // e.g. '1.0.0'
-  macosMinimum: null,   // e.g. '14 Sonoma'  -- from the built Info.plist
+  version:      '0.1.0',
+  macosMinimum: null,   // read off a built Info.plist; there is no mac build yet
 
-  windows: { file: null, size: null, url: null },  // e.g. 'dscoder-1.0.0-win-x64.exe', '96 MB'
-  macos:   { file: null, size: null, url: null },  // one .dmg, Apple silicon and Intel
-  linux:   { file: null, size: null, url: null },  // AppImage, built from the same step
+  // Built on Windows from desktop/ at 0.1.0 and published as a Release asset
+  // on this repository. The size is the installer rounded to the nearest
+  // megabyte -- the same figure Windows itself shows for the file.
+  windows: {
+    file: 'dscoder-0.1.0-win-x64.exe',
+    size: '107 MB',
+    url:  'https://github.com/eotw2054/dscoder-web/releases/download/v0.1.0/dscoder-0.1.0-win-x64.exe',
+  },
+
+  // Still null on purpose, not forgotten. A .dmg can only be built on macOS
+  // and nothing has built one, so the pages go on saying so rather than
+  // linking a file that does not exist.
+  macos:   { file: null, size: null, url: null },
+  // Nor has anything built the AppImage yet.
+  linux:   { file: null, size: null, url: null },
 };
 
 /* ===================================================================== *
