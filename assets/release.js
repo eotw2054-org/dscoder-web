@@ -4,9 +4,9 @@
  *
  *  A version number, a file name, a file size and a minimum macOS version
  *  are things only a real build knows. Windows has been built, so its three
- *  are here. macOS and Linux have not -- a .dmg cannot be produced on
- *  Windows at all -- so theirs stay null and the pages go on saying "Not
- *  published yet" rather than linking a file that does not exist.
+ *  are here, read off the Release that CI published, and so are both
+ *  macOS builds -- one per architecture, because picking the wrong one
+ *  gets you an app that will not open.
  *
  *  This is the point of the file: nothing is written down anywhere else.
  *  There is no "0.9.4" and no "94 MB" hiding in the markup to be forgotten
