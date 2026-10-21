@@ -95,9 +95,11 @@
       <h2>macOS</h2>
       <p class="meta"><span data-rel-if="macosMinimum">macOS
           <span class="unfilled" data-rel="macosMinimum" data-rel-blank="version">version</span>
-          and later<br></span>Apple silicon and Intel ·
-        <span class="unfilled" data-rel="macos.size" data-rel-blank="size">size</span></p>
-      <a class="btn" data-rel-download="macos" data-rel-label="Download for macOS" aria-disabled="true" role="link">Not published yet</a>
+          and later<br></span>Two builds: pick the one your Mac is.</p>
+      <a class="btn" data-rel-download="macosArm" data-rel-label="Apple silicon" aria-disabled="true" role="link">Not published yet</a>
+      <a class="btn" data-rel-download="macosIntel" data-rel-label="Intel" aria-disabled="true" role="link">Not published yet</a>
+      <p class="note">Apple silicon is every Mac since 2020 — the Apple menu
+        → About This Mac says which yours is.</p>
       <p class="note">Updates on macOS are a manual download, every time. See
         step 4.</p>
     </div>
@@ -188,10 +190,14 @@
       prompt and no override.</b> Whoever controls the download server can
       serve you an old release or no release; they cannot put a new line of
       code on your computer.</p>
-    <p>Windows is the only build published so far, and it is the one that
-      has had by far the most use. A macOS disk image and a Linux AppImage
-      are built by the same step; when they are published they will appear
-      above, and until then this page says so rather than offering them.</p>
+    <p><b>Only the Windows build has ever been run by anybody.</b> The macOS
+      disk images and the Linux AppImage above are built by the same step, on
+      the same commit, and they are published here -- but nobody has opened
+      one. If you are the first, whatever happens is worth knowing, including
+      that it worked.</p>
+    <p>A Linux AppImage is published above as well. Tray icons are the part
+      most likely to differ: some desktops have no tray at all, and dscoder
+      sits in one.</p>
   </section>
 
 </div>

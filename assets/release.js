@@ -1,5 +1,5 @@
 /* ===================================================================== *
- *  THE RELEASE VALUES. WINDOWS IS FILLED; macOS AND LINUX ARE NOT.      *
+ *  THE RELEASE VALUES. ALL OF THEM ARE FILLED, FROM A REAL BUILD.      *
  * ===================================================================== *
  *
  *  A version number, a file name, a file size and a minimum macOS version
@@ -25,24 +25,38 @@
  */
 
 const RELEASE = {
-  version:      '0.1.0',
-  macosMinimum: null,   // read off a built Info.plist; there is no mac build yet
+  version:      '0.1.1',
+  macosMinimum: null,   // read off a built Info.plist; nobody has opened one
 
-  // Built on Windows from desktop/ at 0.1.0 and published as a Release asset
-  // on this repository. The size is the installer rounded to the nearest
-  // megabyte -- the same figure Windows itself shows for the file.
+  // Every figure below is read off the published Release, not guessed. The
+  // sizes are binary megabytes -- the number the operating system itself
+  // shows beside the file.
   windows: {
-    file: 'dscoder-0.1.0-win-x64.exe',
-    size: '107 MB',
-    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.0/dscoder-0.1.0-win-x64.exe',
+    file: 'dscoder-0.1.1-win-x64.exe',
+    size: '106 MB',
+    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.1/dscoder-0.1.1-win-x64.exe',
   },
 
-  // Still null on purpose, not forgotten. A .dmg can only be built on macOS
-  // and nothing has built one, so the pages go on saying so rather than
-  // linking a file that does not exist.
-  macos:   { file: null, size: null, url: null },
-  // Nor has anything built the AppImage yet.
-  linux:   { file: null, size: null, url: null },
+  // Two machines, two files, and picking the wrong one gets you an app that
+  // will not open. Apple silicon is every Mac since 2020; Intel is before
+  // that. One button each, named after the machine rather than the chip
+  // architecture, because that is what somebody knows about their own Mac.
+  macosArm: {
+    file: 'dscoder-0.1.1-mac-arm64.dmg',
+    size: '123 MB',
+    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.1/dscoder-0.1.1-mac-arm64.dmg',
+  },
+  macosIntel: {
+    file: 'dscoder-0.1.1-mac-x64.dmg',
+    size: '126 MB',
+    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.1/dscoder-0.1.1-mac-x64.dmg',
+  },
+
+  linux: {
+    file: 'dscoder-0.1.1-linux-x86_64.AppImage',
+    size: '120 MB',
+    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.1/dscoder-0.1.1-linux-x86_64.AppImage',
+  },
 };
 
 /* ===================================================================== *
