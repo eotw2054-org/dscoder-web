@@ -1,12 +1,16 @@
 /* ===================================================================== *
- *  THE RELEASE VALUES. ALL OF THEM ARE UNFILLED.                        *
+ *  THE RELEASE VALUES. WINDOWS IS FILLED; macOS AND LINUX ARE NOT.      *
  * ===================================================================== *
  *
  *  A version number, a file name, a file size and a minimum macOS version
- *  are things only a real build knows. None of them exist yet, so none of
- *  them are written down here, and -- this is the point of the file -- none
- *  of them are written down anywhere else either. There is no "0.9.4" and
- *  no "94 MB" hiding in the markup to be forgotten and shipped.
+ *  are things only a real build knows. Windows has been built, so its three
+ *  are here. macOS and Linux have not -- a .dmg cannot be produced on
+ *  Windows at all -- so theirs stay null and the pages go on saying "Not
+ *  published yet" rather than linking a file that does not exist.
+ *
+ *  This is the point of the file: nothing is written down anywhere else.
+ *  There is no "0.9.4" and no "94 MB" hiding in the markup to be forgotten
+ *  and shipped.
  *
  *  THE STEP THAT BUILDS THE ARTEFACTS EDITS THIS BLOCK AND NOTHING ELSE.
  *  Fill in the values, commit, done. Until then the pages show a dotted
