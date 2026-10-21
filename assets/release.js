@@ -34,7 +34,7 @@ const RELEASE = {
   windows: {
     file: 'dscoder-0.1.0-win-x64.exe',
     size: '107 MB',
-    url:  'https://github.com/eotw2054/dscoder-web/releases/download/v0.1.0/dscoder-0.1.0-win-x64.exe',
+    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.0/dscoder-0.1.0-win-x64.exe',
   },
 
   // Still null on purpose, not forgotten. A .dmg can only be built on macOS
