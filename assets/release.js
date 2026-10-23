@@ -25,16 +25,16 @@
  */
 
 const RELEASE = {
-  version:      '0.1.4',
+  version:      '0.2.8',
   macosMinimum: null,   // read off a built Info.plist; nobody has opened one
 
   // Every figure below is read off the published Release, not guessed. The
   // sizes are binary megabytes -- the number the operating system itself
   // shows beside the file.
   windows: {
-    file: 'dscoder-0.1.4-win-x64.exe',
+    file: 'dscoder-0.2.8-win-x64.exe',
     size: '106 MB',
-    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.4/dscoder-0.1.4-win-x64.exe',
+    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.2.8/dscoder-0.2.8-win-x64.exe',
   },
 
   // Linux is not offered. It still builds in CI, first and alone, because
@@ -46,14 +46,14 @@ const RELEASE = {
   // that. One button each, named after the machine rather than the chip
   // architecture, because that is what somebody knows about their own Mac.
   macosArm: {
-    file: 'dscoder-0.1.4-mac-arm64.dmg',
+    file: 'dscoder-0.2.8-mac-arm64.dmg',
     size: '122 MB',
-    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.4/dscoder-0.1.4-mac-arm64.dmg',
+    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.2.8/dscoder-0.2.8-mac-arm64.dmg',
   },
   macosIntel: {
-    file: 'dscoder-0.1.4-mac-x64.dmg',
+    file: 'dscoder-0.2.8-mac-x64.dmg',
     size: '128 MB',
-    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.1.4/dscoder-0.1.4-mac-x64.dmg',
+    url:  'https://github.com/eotw2054-org/dscoder-web/releases/download/v0.2.8/dscoder-0.2.8-mac-x64.dmg',
   },
 
 };
