@@ -100,7 +100,27 @@ const RELEASE = {
   // The version beside the wordmark is an ornament, not information. With
   // no version it is simply not there, rather than a dotted blank in the
   // corner of every page.
-  for (const el of document.querySelectorAll('[data-rel-version-mark]')) {
-    el.textContent = RELEASE.version || '';
+  //
+  // It is the version dscoder IS, not the version of the installer. The two
+  // part company at every engine release: 0.6.34 onwards shipped as engine
+  // files the installed app fetched for itself, so the installer above
+  // stayed 0.6.33 while the product moved on -- and a wordmark still saying
+  // 0.6.33 three weeks later reads as a site nobody updates. So the number
+  // is asked of the same signed manifest every installed copy reads,
+  // /updates/manifest.json on this origin, and moves with each release with
+  // nobody editing anything. RELEASE.version is what shows until that
+  // answers, and what stays if it never does; only a plain x.y.z is taken,
+  // so whatever comes back can never be more than a version number.
+  const marks = document.querySelectorAll('[data-rel-version-mark]');
+  for (const el of marks) el.textContent = RELEASE.version || '';
+  if (marks.length && typeof fetch === 'function') {
+    fetch('/updates/manifest.json', { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((m) => {
+        const v = m && typeof m.version === 'string' ? m.version.trim() : '';
+        if (!/^\d+\.\d+\.\d+$/.test(v)) return;
+        for (const el of marks) el.textContent = v;
+      })
+      .catch(() => { /* the installer's number stays, which is still a true one */ });
   }
 })();

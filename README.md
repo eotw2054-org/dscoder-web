@@ -46,6 +46,14 @@ They appear in that one file and nowhere else — there is no version number or
 file size hiding in the markup. The step that produces the installers edits
 that block, and nothing else.
 
+The number beside the wordmark is the one exception, and it is deliberate. It
+is the version dscoder **is**, not the version of the installer: engine
+releases go out to installed copies without a new installer being built, so
+the two part company at every release. `release.js` asks `/updates/manifest.json`
+on the same origin — the signed manifest every installed copy reads — and
+shows its version; the installer's version above is what shows until that
+answers, and what stays if it never does.
+
 ## Downloads
 
 The installers are published as **Releases on this repository**. There is
